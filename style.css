@@ -1,4 +1,5 @@
 .raja {
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
      color: #130d0d;
 }
@@ -8,7 +9,20 @@ body{
 } 
 
 .raja1 {
+    font-family: 'Courier New', Courier, monospace;
     text-align: left;
     color: #000000;
 
+}
+
+.rama{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    color: #000000;
+}
+
+.tim {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    color: #000000;
 }
