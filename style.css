@@ -1,15 +1,8 @@
-body {
-
-    background-color: rgb(169, 182, 169);
-
-}
-
-.centered-heading {
+.raja {
     text-align: center;
+     color: #130d0d;
 }
 
-.sqaure {
-    height: 350px;
-    width: 550px;
-
+body{
+    background-color: antiquewhite;
 }
