@@ -57,6 +57,12 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 
+.yy {
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+}
+
 .uu{
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
@@ -67,4 +73,22 @@ body{
     text-align: left;
     color: #000000;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.too {
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    text-align: left;
+}
+
+.kk {
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    text-align: left;
+}
+
+.hj{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    color: #000000;
 }
