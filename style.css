@@ -44,3 +44,27 @@ body{
     color: #000000;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.jpp {
+    text-align: left;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.pp {
+    text-align: left;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.uu{
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+}
+
+.hh {
+    text-align: left;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+}
