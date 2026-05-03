@@ -26,7 +26,7 @@ A website about dinosaurs !
 
 1. added voice sounds for dinosaurs 
 
-2. added new background (custom made )
+2. added new background !
 
 3. New javascript functions are added ! 
 
