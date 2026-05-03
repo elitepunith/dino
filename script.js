@@ -73,3 +73,13 @@ pic7.addEventListener('click', function() {
     sound7.play();
 
   });
+
+
+    const pic8 = document.getElementById('mme1');
+const sound8 = document.getElementById('mme');
+
+pic8.addEventListener('click', function() {
+
+    sound8.play();
+
+  });
