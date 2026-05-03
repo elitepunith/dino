@@ -7,10 +7,10 @@ pic.addEventListener('click', function() {
 
   });
 
-  const pic = document.getElementById('mimo');
-const sound = document.getElementById('mimo1');
+  const pic1 = document.getElementById('mimo1');
+const sound2 = document.getElementById('mimo');
 
-pic.addEventListener('click', function() {
+pic1.addEventListener('click', function() {
 
     sound.play();
 
