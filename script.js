@@ -55,3 +55,12 @@ pic5.addEventListener('click', function() {
     sound5.play();
 
   });
+
+  const pic6 = document.getElementById('ll1');
+const sound6 = document.getElementById('ll2');
+
+pic6.addEventListener('click', function() {
+
+    sound6.play();
+
+  });
