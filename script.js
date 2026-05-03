@@ -64,3 +64,12 @@ pic6.addEventListener('click', function() {
     sound6.play();
 
   });
+
+  const pic7 = document.getElementById('mmi1');
+const sound7 = document.getElementById('mmi');
+
+pic7.addEventListener('click', function() {
+
+    sound7.play();
+
+  });
