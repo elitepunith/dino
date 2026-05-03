@@ -8,10 +8,19 @@ pic.addEventListener('click', function() {
   });
 
   const pic1 = document.getElementById('mimo1');
-const sound2 = document.getElementById('mimo');
+const sound1 = document.getElementById('mimo');
 
 pic1.addEventListener('click', function() {
 
-    sound.play();
+    sound1.play();
+
+  });
+
+  const pic2 = document.getElementById('rara');
+const sound2 = document.getElementById('rara1');
+
+pic2.addEventListener('click', function() {
+
+    sound2.play();
 
   });
