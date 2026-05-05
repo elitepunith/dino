@@ -151,7 +151,7 @@ body{
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
-    
+
 }
 
 .hyp2 {
@@ -160,4 +160,13 @@ body{
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
+}
+
+.hyp3 {
+
+    color: #262429;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    
 }
