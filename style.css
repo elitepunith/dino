@@ -154,3 +154,16 @@ body{
     text-decoration: none;
 
 }
+
+.ml {
+
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    text-align: center;
+}
+
+.hyq {
+
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+}
