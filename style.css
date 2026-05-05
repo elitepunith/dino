@@ -188,3 +188,20 @@ body{
   transition: 0.3s;
 
 }
+
+
+.dino-gallery {
+  display: flex;            
+  justify-content: center;   
+  gap: 20px;                 
+  flex-wrap: wrap;           
+  margin-top: 30px;          
+  
+}
+
+.gallery-pic {
+  width: 250px;              
+  height: auto;              
+  cursor: pointer;          
+  border-radius: 10px;       
+}
