@@ -155,7 +155,7 @@ body{
 
 }
 
-.ml {
+.mla {
 
     font-family: 'Courier New', Courier, monospace;
     color: #000000;
@@ -166,5 +166,17 @@ body{
 
     font-family: 'Courier New', Courier, monospace;
     color: aliceblue;
+
+}
+
+.vivo {
+
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    text-align: left;
+}
+
+.mic {
+
     
 }
