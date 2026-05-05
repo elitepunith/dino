@@ -83,3 +83,13 @@ pic8.addEventListener('click', function() {
     sound8.play();
 
   });
+
+
+   const pic9 = document.getElementById('smm1');
+const sound9 = document.getElementById('smm');
+
+pic9.addEventListener('click', function() {
+
+    sound9.play();
+
+  });
