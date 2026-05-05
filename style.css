@@ -145,9 +145,18 @@ body{
     color: #000000;
 }
 
-.tio {
+.hyp1 {
 
-    color: #000000;
+     color: #262429;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    
+}
+
+.hyp2 {
+
+     color: #262429;
     text-align: left;
     font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
