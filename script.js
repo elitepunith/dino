@@ -104,3 +104,12 @@ pic10.addEventListener('click', function() {
     sound10.play();
 
   });
+
+   const pic11 = document.getElementById('yy');
+const sound11 = document.getElementById('yy1');
+
+pic11.addEventListener('click', function() {
+
+    sound11.play();
+
+  });
