@@ -1,207 +1,215 @@
-.raja {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-     color: #130d0d;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
-body{
-    background-color: rgb(184, 173, 159);
+body {
+    background: linear-gradient(135deg, rgb(184, 173, 159) 0%, rgb(140, 130, 115) 100%);
+    font-family: 'Space Mono', 'Courier New', Courier, monospace;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
 } 
 
-.raja1 {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-
+nav {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.rama{
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.tim {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
+.card {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 30px;
+    border-radius: 16px;
+    border-left: 6px solid #270062;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    margin-bottom: 40px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
 }
 
-.yoo {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.rioo {
-    text-align: left;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace;
+.raja, .mla {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin: 40px 0;
 }
 
-.timm {
-    text-align: left;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace;
+.raja {
+    color: #130d0d;
+    font-size: 3rem;
 }
 
-.jpp {
-    text-align: left;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace;
+.title-center {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.2rem;
+    color: #130d0d;
 }
 
-.pp {
-    text-align: left;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.yy {
-    text-align: left;
-    font-family: 'Courier New', Courier, monospace;
-    color: #000000;
-}
-
-.uu{
-    text-align: left;
-    font-family: 'Courier New', Courier, monospace;
-    color: #000000;
-}
-
-.hh {
-    text-align: left;
-    color: #000000;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.too {
-    font-family: 'Courier New', Courier, monospace;
-    color: #000000;
+.raja1, .rama, .tim, .yoo, .rioo, .timm, .jpp, .pp, .yy, .uu, .hh, .too, .kk, .hj, .gum, .gii, .apy, .apy1, .ape, .ape1, .apu, .apu1, .vivo {
     text-align: left;
 }
-
-.kk {
-    font-family: 'Courier New', Courier, monospace;
-    color: #000000;
-    text-align: left;
-}
-
-.hj{
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.gum {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.gii {
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.apy {
-
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.apy1 {
-
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.ape {
-
-    font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.ape1 {
-
-        font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.apu {
-        font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
-.apu1 {
-        font-family: 'Courier New', Courier, monospace;
-    text-align: left;
-    color: #000000;
-}
-
 
 .hyp3 {
-
     color: #270062;
     text-align: left;
-    font-family: 'Courier New', Courier, monospace;
     text-decoration: none;
-
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
 }
 
-.mla {
-
-    font-family: 'Courier New', Courier, monospace;
-    color: #000000;
-    text-align: center;
+.hyp3:hover {
+    border-bottom: 2px solid #270062;
 }
 
 .hyq {
-
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(0, 0, 0);
-     
-
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.vivo {
-
-    font-family: 'Courier New', Courier, monospace;
-    color: #000000;
-    text-align: left;
+.hyq:hover {
+    color: #ffffff;
+    background: #270062;
+    box-shadow: 0 5px 15px rgba(39, 0, 98, 0.4);
 }
 
 .mic {
-
     background-color: #0d8e6c;
-  color: rgb(156, 100, 100);
-  padding: 10px 10px;
-  border: none;
-  border-radius: 900px;
-  cursor: pointer;
-  transition: 0.3s;
-
+    color: rgb(156, 100, 100);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 900px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.mic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(13, 142, 108, 0.4);
+}
+
+.voice-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.voice-card {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
 
 .dino-gallery {
-  display: flex;            
-  justify-content: center;   
-  gap: 20px;                 
-  flex-wrap: wrap;           
-  margin-top: 30px;          
-  
+    display: grid;            
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;                 
+    padding: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;         
 }
 
 .gallery-pic {
-  width: 250px;              
-  height: auto;              
-  cursor: pointer;          
-  border-radius: 10px;       
+    width: 100%;              
+    height: 250px; 
+    object-fit: cover;             
+    cursor: pointer;          
+    border-radius: 12px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-pic:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+img[id] {
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+img[id]:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox-overlay.active img {
+    transform: scale(1);
 }

@@ -1,115 +1,80 @@
-const pic = document.getElementById('myPic');
-const sound = document.getElementById('clickSound');
+const dinoInteractions = [
+  { picId: 'myPic', soundId: 'clickSound' },
+  { picId: 'mimo1', soundId: 'mimo' },
+  { picId: 'rara', soundId: 'rara1' },
+  { picId: 'tim', soundId: 'tim1' },
+  { picId: 'yop', soundId: 'yop1' },
+  { picId: 'kimo', soundId: 'kimo1' },
+  { picId: 'll1', soundId: 'll2' },
+  { picId: 'mmi1', soundId: 'mmi' },
+  { picId: 'mme1', soundId: 'mme' },
+  { picId: 'smm1', soundId: 'smm' },
+  { picId: 'sm1', soundId: 'sm' },
+  { picId: 'yy', soundId: 'yy1' }
+];
 
-pic.addEventListener('click', function() {
+const allAudios = document.querySelectorAll('audio');
 
-    sound.play();
+function stopAllAudio() {
+    allAudios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+}
 
-  });
+dinoInteractions.forEach(interaction => {
+  const pic = document.getElementById(interaction.picId);
+  const sound = document.getElementById(interaction.soundId);
 
-  const pic1 = document.getElementById('mimo1');
-const sound1 = document.getElementById('mimo');
+  if (pic && sound) {
+    pic.addEventListener('click', () => {
+      stopAllAudio();
+      sound.play();
+    });
+  }
+});
 
-pic1.addEventListener('click', function() {
+allAudios.forEach(audio => {
+    audio.addEventListener('play', (e) => {
+        allAudios.forEach(a => {
+            if (a !== e.target) {
+                a.pause();
+            }
+        });
+    });
+});
 
-    sound1.play();
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.15 });
 
-  });
+document.querySelectorAll('.card, .voice-card, .gallery-pic').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+});
 
-  const pic2 = document.getElementById('rara');
-const sound2 = document.getElementById('rara1');
+const galleryPics = document.querySelectorAll('.gallery-pic');
 
-pic2.addEventListener('click', function() {
+if (galleryPics.length > 0) {
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    
+    const img = document.createElement('img');
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
 
-    sound2.play();
+    galleryPics.forEach(pic => {
+        pic.addEventListener('click', () => {
+            img.src = pic.src;
+            overlay.classList.add('active');
+        });
+    });
 
-  });
-
-  
-  const pic3 = document.getElementById('tim');
-const sound3 = document.getElementById('tim1');
-
-pic3.addEventListener('click', function() {
-
-    sound3.play();
-
-  });
-
-   
-  const pic4 = document.getElementById('yop');
-const sound4 = document.getElementById('yop1');
-
-pic4.addEventListener('click', function() {
-
-    sound4.play();
-
-  });
-
-
-   
-  const pic5 = document.getElementById('kimo');
-const sound5 = document.getElementById('kimo1');
-
-pic5.addEventListener('click', function() {
-
-    sound5.play();
-
-  });
-
-  const pic6 = document.getElementById('ll1');
-const sound6 = document.getElementById('ll2');
-
-pic6.addEventListener('click', function() {
-
-    sound6.play();
-
-  });
-
-  const pic7 = document.getElementById('mmi1');
-const sound7 = document.getElementById('mmi');
-
-pic7.addEventListener('click', function() {
-
-    sound7.play();
-
-  });
-
-
-    const pic8 = document.getElementById('mme1');
-const sound8 = document.getElementById('mme');
-
-pic8.addEventListener('click', function() {
-
-    sound8.play();
-
-  });
-
-
-   const pic9 = document.getElementById('smm1');
-const sound9 = document.getElementById('smm');
-
-pic9.addEventListener('click', function() {
-
-    sound9.play();
-
-  });
-
-
-  
-   const pic10 = document.getElementById('sm1');
-const sound10 = document.getElementById('sm');
-
-pic10.addEventListener('click', function() {
-
-    sound10.play();
-
-  });
-
-   const pic11 = document.getElementById('yy');
-const sound11 = document.getElementById('yy1');
-
-pic11.addEventListener('click', function() {
-
-    sound11.play();
-
-  });
+    overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+    });
+}
