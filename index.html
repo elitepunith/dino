@@ -216,11 +216,11 @@
                     <div class="inline-fields">
                         <label>
                             Username
-                            <input id="authUsername" type="text" minlength="3" placeholder="paleo-explorer">
+                            <input id="authUsername" type="text" minlength="3" autocomplete="username" placeholder="paleo-explorer">
                         </label>
                         <label>
                             Password
-                            <input id="authPassword" type="password" minlength="6" placeholder="At least 6 characters">
+                            <input id="authPassword" type="password" minlength="6" autocomplete="current-password" placeholder="At least 6 characters">
                         </label>
                     </div>
                     <div class="button-row">
@@ -440,7 +440,7 @@
         <p>Built for discovery, redesigned for impact, and powered by a red-first dinosaur command center.</p>
     </footer>
 
-    <script src="https://unpkg.com/three@0.166.1/build/three.min.js"></script>
+    <script type="module" src="viewer-loader.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

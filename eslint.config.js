@@ -15,5 +15,15 @@ module.exports = [
       "no-undef": "error",
       "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
     }
+  },
+  {
+    files: ["viewer-loader.js"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser
+      }
+    }
   }
 ];

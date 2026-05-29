@@ -257,6 +257,10 @@ class DinoViewer {
   }
 
   init() {
+    if (this.ready) {
+      return;
+    }
+
     if (!this.container || !window.THREE) {
       if (this.status) {
         this.status.textContent = "3D viewer unavailable in this browser context";
@@ -484,6 +488,10 @@ class DinoApp {
     this.setupAnimations();
     this.setupGalleryLightbox();
     this.viewer.init();
+    window.addEventListener("three-ready", () => {
+      this.viewer.init();
+      this.syncViewer();
+    });
     this.setupControls();
     await this.restoreSession();
     this.decorateFieldGuide();

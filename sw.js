@@ -1,9 +1,10 @@
-const cacheName = "dino-command-center-v1";
+const cacheName = "dino-command-center-v3";
 const offlineAssets = [
   "/",
   "/index.html",
   "/style.css",
   "/script.js",
+  "/viewer-loader.js",
   "/manifest.json",
   "/data/dinosaurs.json",
   "/assets/dinoo.jpg"
@@ -31,6 +32,13 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") {
+    return;
+  }
+
+  const requestUrl = new URL(event.request.url);
+
+  if (requestUrl.origin !== self.location.origin || requestUrl.pathname.startsWith("/api/")) {
+    event.respondWith(fetch(event.request));
     return;
   }
 
