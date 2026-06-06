@@ -29,17 +29,18 @@ A website about dinosaurs !
 4. added new subpages for pics & voices of dino's .
 5. added hyperlinks to every species from wikipedia.
 6. added some new spices !
+7. flex boxes and new design.
+8. search option .
+9. dark mode
+10. upward button .
 
 ### Preview
+![Uploading image.png…]()
 
-![alt text](<Screenshot 2026-05-02 213956.png>)
+![Uploading image.png…]()
 
-![alt text](<Screenshot 2026-05-02 214027.png>)
+![Uploading image.png…]()
 
-<img width="1886" height="857" alt="image" src="https://github.com/user-attachments/assets/c344eb1c-d355-4f19-9c12-4237ad810fae" />
-
-``
-<img width="1867" height="837" alt="Screenshot 2026-05-06 021523" src="https://github.com/user-attachments/assets/9e8c0e65-5df1-4d5f-bb8d-91bd55de0304" />
 
 ### Credits 
 
