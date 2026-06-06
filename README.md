@@ -1,69 +1,52 @@
-# Dino Command Center
+# Dino
+A website about dinosaurs ! 
 
-A bold red redesign of the original dinosaur website with preserved field-guide content, advanced front-end interactions, and a professional Node.js backend.
+### Tech stack 
+1. HTML
+2. CSS
+3. java script 
 
-## Highlights
+### Features 
 
-- Solid red and crimson visual system with no glassmorphism
-- Interactive dinosaur timeline for Triassic, Jurassic, and Cretaceous exploration
-- Advanced search and filtering by text, era, diet, size, and speed
-- Side-by-side dinosaur comparison
-- Quiz game with scoring
-- Local Three.js-powered 3D viewer
-- Dark and light mode toggle
-- Favorites and bookmarks stored in localStorage
-- Comments and ratings with API or local fallback storage
-- JSON export and print-to-PDF workflow
-- Live statistics dashboard
-- Express API with JWT authentication, Helmet, rate limiting, logging, and persistent storage
-- PWA manifest and service worker support
+1. This website have collection of dinosaurs and information about them !
+2. This website contains images of dinosaurs human know !
+3. This website also has the sounds of dinosaurs !
+4. a sub page for voices of dino's spcies !
+5. a pic sub page for pics of dino's
 
-## Tech stack
+### What i learned 
 
-- HTML
-- CSS
-- JavaScript
-- Node.js
-- Express
-- Three.js
-- ESLint
+1. i learned how to align the pics and how to use basic java script
+2. i also learned how to manage the files and syntax properly !
+3. how to add a audio to the website !
+4. leanred how to use hyperlinks 
 
-## Getting started
+### What i updated 
 
-```bash
-npm install
-npm start
-```
+1. added voice sounds for dinosaurs 
+2. added new background !
+3. New javascript functions are added !
+4. added new subpages for pics & voices of dino's .
+5. added hyperlinks to every species from wikipedia.
+6. added some new spices !
 
-Open `http://localhost:3000`.
+### Preview
 
-## Quality checks
+![alt text](<Screenshot 2026-05-02 213956.png>)
 
-```bash
-npm run check
-npm run lint
-```
+![alt text](<Screenshot 2026-05-02 214027.png>)
 
-## API overview
+<img width="1886" height="857" alt="image" src="https://github.com/user-attachments/assets/c344eb1c-d355-4f19-9c12-4237ad810fae" />
 
-- `GET /api/health`
-- `GET /api/dinosaurs`
-- `GET /api/dinosaurs/:slug`
-- `GET /api/stats`
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/auth/me`
-- `GET /api/comments?slug=theropods`
-- `POST /api/comments`
+``
+<img width="1867" height="837" alt="Screenshot 2026-05-06 021523" src="https://github.com/user-attachments/assets/9e8c0e65-5df1-4d5f-bb8d-91bd55de0304" />
 
-## Storage
+### Credits 
 
-- Dinosaur catalogue data is stored in `data/dinosaurs.json`
-- User accounts and comments persist in JSON files by default
-- If `MONGODB_URI` is configured, authentication and comments switch to MongoDB storage automatically
+1. dino sounds 
+2. google 
+3. wikipedia 
 
-## Pages
+### Author 
 
-- `index.html` for the command center experience
-- `dino-voices.html` for dinosaur audio
-- `dino-pics.html` for the gallery
+elitepunith
