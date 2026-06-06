@@ -1,446 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dino Command Center</title>
-    <meta name="description" content="Explore dinosaurs with a red command-center redesign featuring timeline controls, filters, comparison tools, quiz challenges, 3D viewing, exports, favorites, and a Node API.">
-    <meta name="theme-color" content="#c41e3a">
+    <title>Dino</title>
     <link rel="icon" type="image/x-icon" href="assets/dinoo.jpg">
-    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="topbar" aria-label="Primary">
-        <div class="brand-block">
-            <span class="brand-kicker">Command Center</span>
-            <a class="brand-link" href="index.html">DINOSAURS</a>
-        </div>
-        <div class="nav-links">
-            <a class="hyq" href="dino-voices.html">Voices of Dino's</a>
-            <a class="hyq" href="dino-pics.html">Pics of Dino's</a>
-            <button id="themeToggle" class="action-button" type="button" aria-pressed="false">Dark mode</button>
-        </div>
+    <nav>
+        <a class="hyq" href="dino-voices.html">VOICES OF DINO'S</a>
+        <a class="hyq" href="dino-pics.html">PICS OF DINO'S</a>
     </nav>
 
-    <header class="hero panel">
-        <div class="hero-copy">
-            <p class="eyebrow">Bold red redesign</p>
-            <h1 class="raja">Dino Command Center</h1>
-            <p class="hero-text">The original dinosaur field guide is still here, but it now lives inside a professional red command center with live filtering, comparison tools, a timeline explorer, quiz gameplay, 3D visualization, export actions, favorites, comments, and an integrated backend API.</p>
-            <div class="hero-actions">
-                <a class="primary-link" href="#explorer">Launch explorer</a>
-                <a class="secondary-link" href="#fieldGuide">Read the field guide</a>
-            </div>
-        </div>
-        <div class="hero-metrics" aria-label="Key metrics">
-            <article class="metric-card">
-                <span class="metric-label">Featured groups</span>
-                <strong class="metric-value" id="heroTotalDinosaurs">12</strong>
-            </article>
-            <article class="metric-card">
-                <span class="metric-label">Average speed</span>
-                <strong class="metric-value" id="heroAverageSpeed">0 km/h</strong>
-            </article>
-            <article class="metric-card">
-                <span class="metric-label">Favorites saved</span>
-                <strong class="metric-value" id="heroFavorites">0</strong>
-            </article>
-            <article class="metric-card">
-                <span class="metric-label">Comments logged</span>
-                <strong class="metric-value" id="heroComments">0</strong>
-            </article>
-        </div>
+    <header>
+        <h1 class="raja">Dinosaurs</h1>
     </header>
 
-    <main class="page-shell">
-        <section class="panel intro-panel">
-            <h2 class="section-title">About Dinosaurs</h2>
+    <main>
+        <section class="card">
+            <h2 class="raja1">About Dinosaurs</h2>
             <p class="rama">For an incomprehensible 165 million years, the Earth was a vast, unbroken kingdom of dinosaurs, and the reality of their existence was far stranger and more spectacular than most people realize. The Mesozoic Era wasn't just a bleak landscape of gray rocks and fighting monsters; it was a vibrant, breathing ecosystem teeming with life. You had the sauropods, like the colossal Argentinosaurus, which were essentially walking skyscrapers that stripped entire canopies of leaves just to fuel their massive bodies. But then you had the other end of the spectrum—nimble, pack-hunting theropods with hollow bones and bodies covered in complex, iridescent plumage, looking more like giant, lethal birds of prey than overgrown lizards. They evolved bizarre crests for communication, thick armor plates for defense, and sickle-shaped claws for hunting, dominating every ecological niche from the sweltering supercontinents to the ancient polar forests where it actually snowed.</p>
+            
             <p class="tim">Their reign was violently interrupted about 66 million years ago when a city-sized asteroid slammed into what is now the Yucatan Peninsula, triggering a cataclysm of tsunamis, wildfires, and a suffocating global winter that wiped out roughly 75 percent of all life on Earth. The sheer scale of the devastation abruptly ended the era of the giant non-avian dinosaurs, collapsing food chains from the top down as the skies darkened and vegetation died off. Yet, the true plot twist of paleontology is that they didn't completely vanish. A specific lineage of small, feathered, warm-blooded theropods managed to survive the apocalyptic fallout by sheltering, scavenging, and adapting to the harsh new world. Millions of years of evolution sculpted those hardy survivors into the birds we see today. So, in a very real sense, the age of the dinosaurs never truly ended; they just traded their massive teeth and heavy tails for beaks and wings, continuing to live right outside our windows.</p>
         </section>
 
-        <section id="explorer" class="panel">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Feature 1 and 2</p>
-                    <h2 class="section-title">Interactive timeline and advanced explorer</h2>
-                </div>
-                <span id="dataSourceBadge" class="status-pill" aria-live="polite">Loading catalogue</span>
-            </div>
-            <div class="timeline-shell">
-                <label class="slider-label" for="timelineRange">Era focus</label>
-                <input id="timelineRange" type="range" min="0" max="2" step="1" value="1">
-                <div class="timeline-readout">
-                    <strong id="timelineEra">Jurassic</strong>
-                    <p id="timelineDescription">Towering plant-eaters and iconic plated herbivores shaped the Jurassic spotlight.</p>
-                    <div id="timelineSpecies" class="chip-row"></div>
-                </div>
-            </div>
-            <form id="filtersForm" class="filters" aria-label="Dinosaur filters">
-                <label>
-                    Search
-                    <input id="searchInput" type="search" placeholder="Search by name, group, or summary">
-                </label>
-                <label>
-                    Era
-                    <select id="eraFilter">
-                        <option value="">All eras</option>
-                        <option value="Triassic">Triassic</option>
-                        <option value="Jurassic">Jurassic</option>
-                        <option value="Cretaceous">Cretaceous</option>
-                    </select>
-                </label>
-                <label>
-                    Diet
-                    <select id="dietFilter">
-                        <option value="">All diets</option>
-                        <option value="Carnivore">Carnivore</option>
-                        <option value="Herbivore">Herbivore</option>
-                        <option value="Omnivore">Omnivore</option>
-                    </select>
-                </label>
-                <label>
-                    Size
-                    <select id="sizeFilter">
-                        <option value="">All sizes</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                        <option value="Giant">Giant</option>
-                        <option value="Colossal">Colossal</option>
-                    </select>
-                </label>
-                <label>
-                    Minimum speed
-                    <input id="speedFilter" type="range" min="0" max="50" value="0">
-                    <span id="speedFilterValue">0 km/h</span>
-                </label>
-            </form>
-            <div id="dinoGrid" class="dino-grid" aria-live="polite"></div>
+        <h2 class="yoo title-center">Different types of Dinosaurs</h2>
+
+        <section class="card dino-entry">
+            <h3 class="rioo">Theropods</h3>
+            <audio id="clickSound" src="audio/Tarchia.mp3"></audio>
+            <img id="myPic" src="assets/Theropod.png" style="float: left; margin-right: 25px; width: 200px; cursor: pointer;" alt="Theropods">
+            <p class="timm">When you think of a scary, meat-eating dinosaur, you are thinking of a theropod. This group includes famous predators like the Tyrannosaurus rex and the Velociraptor. They walked on two legs, had hollow bones (much like modern birds), and featured jaws packed with sharp, serrated teeth designed to tear through flesh. Interestingly, this is also the group that was most heavily feathered; many smaller theropods looked a lot more like aggressive, toothed birds than the scaly lizards we usually imagine. They were fast, incredibly smart, and eventually evolved into the birds that fly around today.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Theropoda" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
         </section>
 
-        <section class="feature-grid">
-            <section class="panel">
-                <div class="section-heading">
-                    <div>
-                        <p class="eyebrow">Feature 3</p>
-                        <h2 class="section-title">Dinosaur comparison tool</h2>
-                    </div>
-                </div>
-                <div class="comparison-controls">
-                    <label>
-                        Dinosaur A
-                        <select id="compareA"></select>
-                    </label>
-                    <label>
-                        Dinosaur B
-                        <select id="compareB"></select>
-                    </label>
-                </div>
-                <div id="comparisonOutput" class="comparison-output" aria-live="polite"></div>
-            </section>
-
-            <section class="panel">
-                <div class="section-heading">
-                    <div>
-                        <p class="eyebrow">Feature 4</p>
-                        <h2 class="section-title">Quiz game</h2>
-                    </div>
-                </div>
-                <div id="quizCard" class="quiz-card">
-                    <p id="quizProgress" class="status-text"></p>
-                    <h3 id="quizQuestion" class="quiz-question"></h3>
-                    <div id="quizOptions" class="quiz-options"></div>
-                    <button id="quizRestart" class="secondary-link" type="button">Restart quiz</button>
-                </div>
-            </section>
-
-            <section class="panel">
-                <div class="section-heading">
-                    <div>
-                        <p class="eyebrow">Feature 5</p>
-                        <h2 class="section-title">3D model viewer</h2>
-                    </div>
-                </div>
-                <label>
-                    Display species
-                    <select id="viewerSelect"></select>
-                </label>
-                <div id="viewerCanvas" class="viewer-canvas" role="img" aria-label="Interactive 3D dinosaur model viewer"></div>
-                <p id="viewerStatus" class="status-text">Loading 3D viewer</p>
-            </section>
-
-            <section class="panel">
-                <div class="section-heading">
-                    <div>
-                        <p class="eyebrow">Feature 6 and 10</p>
-                        <h2 class="section-title">Theme switcher and live statistics</h2>
-                    </div>
-                </div>
-                <div id="statsCards" class="stats-cards"></div>
-                <div class="stats-columns">
-                    <div>
-                        <h3 class="subheading">Era distribution</h3>
-                        <div id="eraStats" class="stat-bars"></div>
-                    </div>
-                    <div>
-                        <h3 class="subheading">Diet distribution</h3>
-                        <div id="dietStats" class="stat-bars"></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="panel">
-                <div class="section-heading">
-                    <div>
-                        <p class="eyebrow">Feature 7 and 9</p>
-                        <h2 class="section-title">Favorites and export</h2>
-                    </div>
-                </div>
-                <div class="button-row">
-                    <button id="exportJson" class="action-button" type="button">Download JSON</button>
-                    <button id="exportPdf" class="action-button" type="button">Print to PDF</button>
-                </div>
-                <div id="favoritesList" class="favorites-list" aria-live="polite"></div>
-            </section>
-
-            <section class="panel">
-                <div class="section-heading">
-                    <div>
-                        <p class="eyebrow">Feature 8 and API auth</p>
-                        <h2 class="section-title">Comments, ratings, and sign in</h2>
-                    </div>
-                </div>
-                <form id="authForm" class="stack-form">
-                    <div class="inline-fields">
-                        <label>
-                            Username
-                            <input id="authUsername" type="text" minlength="3" autocomplete="username" placeholder="paleo-explorer">
-                        </label>
-                        <label>
-                            Password
-                            <input id="authPassword" type="password" minlength="6" autocomplete="current-password" placeholder="At least 6 characters">
-                        </label>
-                    </div>
-                    <div class="button-row">
-                        <button id="registerButton" class="action-button" type="button">Register</button>
-                        <button id="loginButton" class="action-button" type="button">Login</button>
-                        <button id="logoutButton" class="secondary-link" type="button">Logout</button>
-                    </div>
-                    <p id="authStatus" class="status-text" aria-live="polite">Guest mode enabled</p>
-                </form>
-                <form id="commentForm" class="stack-form">
-                    <div class="inline-fields">
-                        <label>
-                            Dinosaur
-                            <select id="commentDinosaur"></select>
-                        </label>
-                        <label>
-                            Rating
-                            <select id="commentRating">
-                                <option value="5">5</option>
-                                <option value="4">4</option>
-                                <option value="3">3</option>
-                                <option value="2">2</option>
-                                <option value="1">1</option>
-                            </select>
-                        </label>
-                    </div>
-                    <label>
-                        Comment
-                        <textarea id="commentMessage" rows="4" placeholder="Share what stands out about this dinosaur"></textarea>
-                    </label>
-                    <button id="commentSubmit" class="primary-link button-link" type="submit">Post review</button>
-                </form>
-                <div id="commentSummary" class="status-pill">Loading reviews</div>
-                <div id="commentsList" class="comment-list" aria-live="polite"></div>
-            </section>
+        <section class="card dino-entry">
+            <h3 class="too">Sauropods</h3>
+            <audio id="mimo" src="audio/triceratops.mp3"></audio>
+            <img id="mimo1" src="assets/Sauropods.png" style="float: left; margin-right: 25px; width: 160px; cursor: pointer;" alt="Sauropods">
+            <p class="jpp">These were the gentle giants of the ancient world and the largest land animals to ever exist. Dinosaurs like the Brachiosaurus and Diplodocus are famous for their impossibly long necks, long whip-like tails, and thick, pillar-like legs. Their bodies were essentially giant fermentation tanks designed to digest massive amounts of tough plant matter. Because they were so heavy, they had to walk on all fours. A fully grown sauropod was so big that it had almost no natural predators—a predator would have to be crazy to try and take down an animal the size of a four-story building.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Sauropoda" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
         </section>
 
-        <section id="fieldGuide" class="panel field-guide">
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">Original content preserved</p>
-                    <h2 class="section-title">Different types of dinosaurs</h2>
-                </div>
-            </div>
+        <section class="card dino-entry">
+            <h3 class="yy">Ceratopsians</h3>
+            <audio id="rara1" src="audio/Brachiosaurus.mp3"></audio>
+            <img id="rara" src="assets/Ceratopsians.png" style="float: left; margin-right: 25px; width: 160px;cursor: pointer;" alt="Ceratopsians">
+            <p class="pp">If the dinosaur world had rhinoceroses, the ceratopsians would be it. Triceratops is the poster child for this group. They were four-legged herbivores characterized by the massive bony frills on the back of their heads and impressive facial horns. Those heavy, armored skulls weren't just for defending against hungry T-rexes; they were also likely used to show off to mates or wrestle with rivals, much like modern deer use their antlers. They also had incredibly strong, parrot-like beaks designed to snap off tough branches and vegetation.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Ceratopsia" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="theropods" data-era="Jurassic" data-diet="Carnivore" data-size="Large" data-speed="40">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="clickSound" src="audio/Tarchia.mp3"></audio>
-                        <img id="myPic" class="entry-image" src="assets/Theropod.png" alt="Theropods">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="rioo">Theropods</h3>
-                        <p class="timm">When you think of a scary, meat-eating dinosaur, you are thinking of a theropod. This group includes famous predators like the Tyrannosaurus rex and the Velociraptor. They walked on two legs, had hollow bones (much like modern birds), and featured jaws packed with sharp, serrated teeth designed to tear through flesh. Interestingly, this is also the group that was most heavily feathered; many smaller theropods looked a lot more like aggressive, toothed birds than the scaly lizards we usually imagine. They were fast, incredibly smart, and eventually evolved into the birds that fly around today.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Theropoda" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="uu">Stegosaurs</h3>
+            <audio id="tim1" src="audio/Huayangosaurus.mp3"></audio>
+            <img id="tim" src="assets/Stegosaurs.webp" style="float: left; margin-right: 25px; width: 200px;cursor: pointer;" alt="Stegosaurs">
+            <p class="hh">Stegosaurs are instantly recognizable thanks to the double row of large, kite-shaped bony plates running down their backs and the menacing spikes at the end of their tails (hilariously named the "thagomizer" by scientists). Stegosaurus is the most famous example. Despite looking incredibly tough, they had incredibly tiny heads and brains roughly the size of a walnut. Paleontologists still debate what the plates were for—some think they acted like solar panels to help warm up their blood, while others believe they were brightly colored to intimidate predators or attract mates.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Stegosaurus" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="sauropods" data-era="Jurassic" data-diet="Herbivore" data-size="Colossal" data-speed="25">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="mimo" src="audio/triceratops.mp3"></audio>
-                        <img id="mimo1" class="entry-image" src="assets/Sauropods.png" alt="Sauropods">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="too">Sauropods</h3>
-                        <p class="jpp">These were the gentle giants of the ancient world and the largest land animals to ever exist. Dinosaurs like the Brachiosaurus and Diplodocus are famous for their impossibly long necks, long whip-like tails, and thick, pillar-like legs. Their bodies were essentially giant fermentation tanks designed to digest massive amounts of tough plant matter. Because they were so heavy, they had to walk on all fours. A fully grown sauropod was so big that it had almost no natural predators—a predator would have to be crazy to try and take down an animal the size of a four-story building.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Sauropoda" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="kk">Ankylosaurs</h3>
+            <audio id="yop1" src="audio/Velociraptor.mp3"></audio>
+            <img id="yop" src="assets/Ankylosaurs.webp" style="float: left; margin-right: 25px; width: 160px;cursor: pointer;" alt="Ankylosaurs">
+            <p class="hj">These were the ultimate biological tanks. Ankylosaurs were wide, squat, four-legged herbivores that were almost entirely covered in thick, bony armor plates (called osteoderms) fused directly to their skin. Some even had armored eyelids! The most famous, like the Ankylosaurus, carried a massive, bony club at the end of their tail. If a predator got too close, an ankylosaur could swing that tail club with enough force to shatter the leg bones of even the largest carnivorous dinosaurs.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Ankylosaurus" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="ceratopsians" data-era="Cretaceous" data-diet="Herbivore" data-size="Large" data-speed="20">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="rara1" src="audio/Brachiosaurus.mp3"></audio>
-                        <img id="rara" class="entry-image" src="assets/Ceratopsians.png" alt="Ceratopsians">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="yy">Ceratopsians</h3>
-                        <p class="pp">If the dinosaur world had rhinoceroses, the ceratopsians would be it. Triceratops is the poster child for this group. They were four-legged herbivores characterized by the massive bony frills on the back of their heads and impressive facial horns. Those heavy, armored skulls weren't just for defending against hungry T-rexes; they were also likely used to show off to mates or wrestle with rivals, much like modern deer use their antlers. They also had incredibly strong, parrot-like beaks designed to snap off tough branches and vegetation.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Ceratopsia" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="gum">Ornithopods</h3>
+            <audio id="kimo1" src="audio/Dromaeosaurus.mp3"></audio>
+            <img id="kimo" src="assets/Ornithopod.png" style="float: left; margin-right: 25px; width: 200px; cursor: pointer;" alt="Ornithopods">
+            <p class="gii">Often referred to as the "cows of the Cretaceous," ornithopods like Parasaurolophus and Edmontosaurus were incredibly successful herbivores that roamed in massive herds. They are famous for their "duck-billed" snouts, which were packed with hundreds of tightly arranged teeth perfectly designed for grinding up tough plants. What makes them truly fascinating, though, is their communication. Many of them had elaborate, hollow bony crests on top of their heads that connected to their nasal passages. When they breathed out, these crests acted like biological trombones, allowing them to honk and trumpet loudly across the prehistoric plains.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Ornithopoda" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="stegosaurs" data-era="Jurassic" data-diet="Herbivore" data-size="Large" data-speed="15">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="tim1" src="audio/Huayangosaurus.mp3"></audio>
-                        <img id="tim" class="entry-image" src="assets/Stegosaurs.webp" alt="Stegosaurs">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="uu">Stegosaurs</h3>
-                        <p class="hh">Stegosaurs are instantly recognizable thanks to the double row of large, kite-shaped bony plates running down their backs and the menacing spikes at the end of their tails (hilariously named the "thagomizer" by scientists). Stegosaurus is the most famous example. Despite looking incredibly tough, they had incredibly tiny heads and brains roughly the size of a walnut. Paleontologists still debate what the plates were for—some think they acted like solar panels to help warm up their blood, while others believe they were brightly colored to intimidate predators or attract mates.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Stegosaurus" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="apy">Pterosaurs</h3>
+            <audio id="ll2" src="audio/Pterodactylus.mp3"></audio>
+            <img id="ll1" src="assets/Pterosaurs.png" style="float: left; margin-right: 25px; width: 200px; cursor: pointer;" alt="Pterosaurs">
+            <p class="apy1">These were the undisputed masters of the Mesozoic skies, and they were the first vertebrates on Earth to evolve powered flight (long before bats or birds figured it out). They weren't dinosaurs, but flying reptiles. While some, like the famous Pteranodon, were roughly the size of an eagle or an albatross, others pushed the absolute limits of biology. The Quetzalcoatlus, for example, was one of the largest flying animals of all time. Picture a creature with the wingspan of a small fighter jet, standing as tall as a modern-day giraffe when it was walking on the ground, scooping up small dinosaurs like we would eat popcorn.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Pterosaur" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="ankylosaurs" data-era="Cretaceous" data-diet="Herbivore" data-size="Large" data-speed="12">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="yop1" src="audio/Velociraptor.mp3"></audio>
-                        <img id="yop" class="entry-image" src="assets/Ankylosaurs.webp" alt="Ankylosaurs">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="kk">Ankylosaurs</h3>
-                        <p class="hj">These were the ultimate biological tanks. Ankylosaurs were wide, squat, four-legged herbivores that were almost entirely covered in thick, bony armor plates (called osteoderms) fused directly to their skin. Some even had armored eyelids! The most famous, like the Ankylosaurus, carried a massive, bony club at the end of their tail. If a predator got too close, an ankylosaur could swing that tail club with enough force to shatter the leg bones of even the largest carnivorous dinosaurs.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Ankylosaurus" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="ape">Marine Reptiles</h3>
+            <audio id="mmi" src="audio/Desmatosuchus1.mp3"></audio>
+            <img id="mmi1" src="assets/Marine Reptiles.png" style="float: left; margin-right: 25px; width: 200px; cursor: pointer;" alt="Marine Reptiles">
+            <p class="ape1">While the dinosaurs controlled the continents, a completely different cast of nightmares ruled the oceans. You had the Ichthyosaurs, which looked and swam remarkably like modern-day dolphins, but were entirely reptilian and possessed some of the largest eyes in the animal kingdom to hunt in the dark depths. Then there were the Plesiosaurs, which looked exactly like the mythical Loch Ness Monster, using four massive flippers to glide through the water while their impossibly long necks darted around to catch fish. Finally, toward the end of the dinosaur age, the Mosasaurs took over. These were essentially massive, aquatic monitor lizards—some reaching 50 feet long—with jaws like crocodiles. They were the undisputed apex predators of the deep, eating basically anything they could fit their massive teeth around.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Marine_reptile" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="ornithopods" data-era="Cretaceous" data-diet="Herbivore" data-size="Medium" data-speed="34">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="kimo1" src="audio/Dromaeosaurus.mp3"></audio>
-                        <img id="kimo" class="entry-image" src="assets/Ornithopod.png" alt="Ornithopods">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="gum">Ornithopods</h3>
-                        <p class="gii">Often referred to as the "cows of the Cretaceous," ornithopods like Parasaurolophus and Edmontosaurus were incredibly successful herbivores that roamed in massive herds. They are famous for their "duck-billed" snouts, which were packed with hundreds of tightly arranged teeth perfectly designed for grinding up tough plants. What makes them truly fascinating, though, is their communication. Many of them had elaborate, hollow bony crests on top of their heads that connected to their nasal passages. When they breathed out, these crests acted like biological trombones, allowing them to honk and trumpet loudly across the prehistoric plains.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Ornithopoda" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="apu">Pachycephalosaurs</h3>
+            <audio id="mme" src="audio/Pachycephalosaurus1.mp3"></audio>
+            <img id="mme1" src="assets/Pachycephalosaurs.png" style="float: left; margin-right: 25px; width: 160px; cursor: pointer;" alt="Pachycephalosaurs">
+            <p class="apu1">Back on land, we have to mention one of the strangest true dinosaur groups. Pachycephalosaurs (which translates to "thick-headed lizards") were two-legged herbivores that looked relatively normal from the neck down. But their skulls were bizarre. The tops of their heads featured solid domes of bone that could be up to 10 inches thick, often surrounded by a crown of bony spikes or knobs. For a long time, scientists pictured them running and ramming their heads together like modern bighorn sheep. However, recent studies suggest their necks couldn't handle that kind of direct impact. Instead, they likely used those heavy bowling-ball heads to deliver devastating broadside headbutts to the flanks of their rivals when fighting for territory or mates.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Pachycephalosaurus" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="pterosaurs" data-era="Cretaceous" data-diet="Carnivore" data-size="Medium" data-speed="48">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="ll2" src="audio/Pterodactylus.mp3"></audio>
-                        <img id="ll1" class="entry-image" src="assets/Pterosaurs.png" alt="Pterosaurs">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="apy">Pterosaurs</h3>
-                        <p class="apy1">These were the undisputed masters of the Mesozoic skies, and they were the first vertebrates on Earth to evolve powered flight (long before bats or birds figured it out). They weren't dinosaurs, but flying reptiles. While some, like the famous Pteranodon, were roughly the size of an eagle or an albatross, others pushed the absolute limits of biology. The Quetzalcoatlus, for example, was one of the largest flying animals of all time. Picture a creature with the wingspan of a small fighter jet, standing as tall as a modern-day giraffe when it was walking on the ground, scooping up small dinosaurs like we would eat popcorn.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Pterosaur" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="apu">Therizinosaurs</h3>
+            <audio id="smm" src="audio/Compsognathus.wav"></audio>
+            <img id="smm1" src="assets/Therizinosaurus.webp" style="float: left; margin-right: 25px; width: 160px; cursor: pointer;" alt="Therizinosaurus">
+            <p class="apu1">These are arguably the weirdest-looking dinosaurs to ever exist. Imagine an animal the size of a T-Rex, but it walks on two legs, has a massive pot belly, a long neck, a tiny head with a beak, is covered in a coat of shaggy feathers, and possesses hands tipped with terrifying, three-foot-long claws. Therizinosaurus is the most famous example. Despite looking like a prehistoric Edward Scissorhands, these bizarre creatures were actually gentle herbivores. Paleontologists believe they used their massive, sword-like claws not for hunting, but like giant grappling hooks to pull down tall, leafy branches—similar to how giant ground sloths fed—or to intimidate any predators brave enough to bother them.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Therizinosaurus" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="marine-reptiles" data-era="Cretaceous" data-diet="Carnivore" data-size="Giant" data-speed="29">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="mmi" src="audio/Desmatosuchus1.mp3"></audio>
-                        <img id="mmi1" class="entry-image" src="assets/Marine Reptiles.png" alt="Marine Reptiles">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="ape">Marine Reptiles</h3>
-                        <p class="ape1">While the dinosaurs controlled the continents, a completely different cast of nightmares ruled the oceans. You had the Ichthyosaurs, which looked and swam remarkably like modern-day dolphins, but were entirely reptilian and possessed some of the largest eyes in the animal kingdom to hunt in the dark depths. Then there were the Plesiosaurs, which looked exactly like the mythical Loch Ness Monster, using four massive flippers to glide through the water while their impossibly long necks darted around to catch fish. Finally, toward the end of the dinosaur age, the Mosasaurs took over. These were essentially massive, aquatic monitor lizards—some reaching 50 feet long—with jaws like crocodiles. They were the undisputed apex predators of the deep, eating basically anything they could fit their massive teeth around.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Marine_reptile" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="apu">Spinosaurids</h3>
+            <audio id="sm" src="audio/Stegosaurus.wav"></audio>
+            <img id="sm1" src="assets/Spinosaurus.png" style="float: left; margin-right: 25px; width: 200px; cursor: pointer;" alt="Spinosaurus">
+            <p class="apu1">If you are familiar with the massive, sail-backed predator from Jurassic Park III, you know the Spinosaurus. The Spinosaurid family was a highly specialized group of carnivorous dinosaurs that evolved to dominate ancient rivers and swamps. Instead of the thick, bone-crushing skulls of other predators, they had long, narrow snouts filled with conical teeth, making them look incredibly similar to modern-day crocodiles. They also possessed massive, muscular arms with huge, hook-like thumb claws. Recent fossil evidence and their unusually dense bone structure suggest that these dinosaurs were semi-aquatic, spending much of their time swimming and wading in deep water to hunt massive prehistoric fish. Spinosaurus itself is currently considered the largest terrestrial carnivore ever discovered, out-sizing even the mighty T-Rex!</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Spinosauridae" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
+        </section>
 
-            <article class="card dino-entry" data-slug="pachycephalosaurs" data-era="Cretaceous" data-diet="Herbivore" data-size="Medium" data-speed="24">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="mme" src="audio/Pachycephalosaurus1.mp3"></audio>
-                        <img id="mme1" class="entry-image" src="assets/Pachycephalosaurs.png" alt="Pachycephalosaurs">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="apu">Pachycephalosaurs</h3>
-                        <p class="apu1">Back on land, we have to mention one of the strangest true dinosaur groups. Pachycephalosaurs (which translates to "thick-headed lizards") were two-legged herbivores that looked relatively normal from the neck down. But their skulls were bizarre. The tops of their heads featured solid domes of bone that could be up to 10 inches thick, often surrounded by a crown of bony spikes or knobs. For a long time, scientists pictured them running and ramming their heads together like modern bighorn sheep. However, recent studies suggest their necks couldn't handle that kind of direct impact. Instead, they likely used those heavy bowling-ball heads to deliver devastating broadside headbutts to the flanks of their rivals when fighting for territory or mates.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Pachycephalosaurus" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card dino-entry" data-slug="therizinosaurs" data-era="Cretaceous" data-diet="Herbivore" data-size="Giant" data-speed="20">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="smm" src="audio/Compsognathus.wav"></audio>
-                        <img id="smm1" class="entry-image" src="assets/Therizinosaurus.webp" alt="Therizinosaurus">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="apu">Therizinosaurs</h3>
-                        <p class="apu1">These are arguably the weirdest-looking dinosaurs to ever exist. Imagine an animal the size of a T-Rex, but it walks on two legs, has a massive pot belly, a long neck, a tiny head with a beak, is covered in a coat of shaggy feathers, and possesses hands tipped with terrifying, three-foot-long claws. Therizinosaurus is the most famous example. Despite looking like a prehistoric Edward Scissorhands, these bizarre creatures were actually gentle herbivores. Paleontologists believe they used their massive, sword-like claws not for hunting, but like giant grappling hooks to pull down tall, leafy branches—similar to how giant ground sloths fed—or to intimidate any predators brave enough to bother them.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Therizinosaurus" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card dino-entry" data-slug="spinosaurids" data-era="Cretaceous" data-diet="Carnivore" data-size="Giant" data-speed="27">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="sm" src="audio/Stegosaurus.wav"></audio>
-                        <img id="sm1" class="entry-image" src="assets/Spinosaurus.png" alt="Spinosaurus">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="apu">Spinosaurids</h3>
-                        <p class="apu1">If you are familiar with the massive, sail-backed predator from Jurassic Park III, you know the Spinosaurus. The Spinosaurid family was a highly specialized group of carnivorous dinosaurs that evolved to dominate ancient rivers and swamps. Instead of the thick, bone-crushing skulls of other predators, they had long, narrow snouts filled with conical teeth, making them look incredibly similar to modern-day crocodiles. They also possessed massive, muscular arms with huge, hook-like thumb claws. Recent fossil evidence and their unusually dense bone structure suggest that these dinosaurs were semi-aquatic, spending much of their time swimming and wading in deep water to hunt massive prehistoric fish. Spinosaurus itself is currently considered the largest terrestrial carnivore ever discovered, out-sizing even the mighty T-Rex!</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Spinosauridae" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="card dino-entry" data-slug="oviraptorosaurs" data-era="Cretaceous" data-diet="Omnivore" data-size="Small" data-speed="32">
-                <div class="entry-layout">
-                    <div class="entry-media">
-                        <audio id="yy1" src="audio/Allosaurus1.wav"></audio>
-                        <img id="yy" class="entry-image" src="assets/Chirostenotes.webp" alt="Chirostenotes">
-                    </div>
-                    <div class="entry-copy">
-                        <h3 class="apu">Oviraptorosaurs</h3>
-                        <p class="apu1">Oviraptorosaurs were a group of highly intelligent, exceptionally bird-like dinosaurs. They walked on two legs, were fully covered in feathers (including large fan-like tail feathers), and had short, strong, parrot-like beaks completely devoid of teeth. Some even sported elaborate, bony crests on their heads, much like a modern cassowary. When the first Oviraptor was discovered in the 1920s in the Gobi Desert, its fossil was found lying directly over a nest of eggs. Scientists assumed it was caught in the act of raiding the nest, which is why its name literally translates to "egg thief." However, decades later, incredible new fossil discoveries revealed the truth: those eggs actually belonged to the Oviraptor itself! Far from being thieves, these dinosaurs were actually fiercely dedicated parents who died protecting and incubating their own nests, tucking their feathered arms around their eggs exactly like modern birds do today.</p>
-                        <a class="hyp3" href="https://en.wikipedia.org/wiki/Oviraptorosauria" target="_blank" rel="noreferrer">For more information visit this page</a>
-                    </div>
-                </div>
-            </article>
+        <section class="card dino-entry">
+            <h3 class="apu">Oviraptorosaurs</h3>
+            <audio id="yy1" src="audio/Allosaurus1.wav"></audio>
+            <img id="yy" src="assets/Chirostenotes.webp" style="float: left; margin-right: 25px; width: 160px; cursor: pointer;" alt="Chirostenotes">
+            <p class="apu1">Oviraptorosaurs were a group of highly intelligent, exceptionally bird-like dinosaurs. They walked on two legs, were fully covered in feathers (including large fan-like tail feathers), and had short, strong, parrot-like beaks completely devoid of teeth. Some even sported elaborate, bony crests on their heads, much like a modern cassowary. When the first Oviraptor was discovered in the 1920s in the Gobi Desert, its fossil was found lying directly over a nest of eggs. Scientists assumed it was caught in the act of raiding the nest, which is why its name literally translates to "egg thief." However, decades later, incredible new fossil discoveries revealed the truth: those eggs actually belonged to the Oviraptor itself! Far from being thieves, these dinosaurs were actually fiercely dedicated parents who died protecting and incubating their own nests, tucking their feathered arms around their eggs exactly like modern birds do today.</p>
+            <a class="hyp3" href="https://en.wikipedia.org/wiki/Oviraptorosauria" target="_blank">For more information visit this page</a>
+            <div style="clear: both;"></div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <p>Built for discovery, redesigned for impact, and powered by a red-first dinosaur command center.</p>
-    </footer>
-
-    <script type="module" src="viewer-loader.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
