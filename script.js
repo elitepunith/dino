@@ -44,7 +44,6 @@ allAudios.forEach(audio => {
     });
 });
 
-// Scroll-triggered fade-in
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -59,7 +58,6 @@ document.querySelectorAll('.card, .voice-card, .gallery-tile').forEach(el => {
     observer.observe(el);
 });
 
-// Lightbox for gallery images
 const galleryPics = document.querySelectorAll('.gallery-pic');
 
 if (galleryPics.length > 0) {
@@ -80,5 +78,26 @@ if (galleryPics.length > 0) {
 
     overlay.addEventListener('click', () => {
         overlay.classList.remove('active');
+    });
+}
+
+const surpriseButton = document.getElementById('surpriseButton');
+const surpriseStatus = document.getElementById('surpriseStatus');
+const dinoCards = document.querySelectorAll('.dino-entry');
+
+if (surpriseButton && dinoCards.length > 0) {
+    surpriseButton.addEventListener('click', () => {
+        const randomCard = dinoCards[Math.floor(Math.random() * dinoCards.length)];
+        const cardTitle = randomCard.querySelector('h3');
+
+        randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        randomCard.classList.add('surprise-highlight');
+        window.setTimeout(() => randomCard.classList.remove('surprise-highlight'), 1200);
+
+        if (surpriseStatus) {
+            surpriseStatus.textContent = cardTitle
+                ? `Try ${cardTitle.textContent.trim()}!`
+                : 'Here is a random dinosaur group!';
+        }
     });
 }
