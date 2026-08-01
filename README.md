@@ -30,16 +30,12 @@ A website about dinosaurs !
 5. added hyperlinks to every species from wikipedia.
 6. added some new spices !
 7. flex boxes and new design.
-8. search option .
-9. dark mode
-10. upward button .
+
 
 ### Preview
-<img width="1893" height="861" alt="image" src="https://github.com/user-attachments/assets/b65df666-91c8-465a-a246-3067f142e70e" />
 
-<img width="1901" height="853" alt="image" src="https://github.com/user-attachments/assets/ed884f1b-8102-470c-9aa9-0fccd95e86d1" />
+<img width="1901" height="851" alt="image" src="https://github.com/user-attachments/assets/307c942f-eb98-4d07-a03f-2c69128acb9c" />
 
-<img width="1900" height="845" alt="image" src="https://github.com/user-attachments/assets/41a1d0f2-a30c-4ef9-8d28-ba4e0192d2ed" />
 
 
 ### Credits 
