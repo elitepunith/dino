@@ -38,6 +38,10 @@ A website about dinosaurs !
 
 
 
+### Ai Usage
+
+i used Claude to help and design the website and debugging 
+
 ### Credits 
 
 1. dino sounds 
